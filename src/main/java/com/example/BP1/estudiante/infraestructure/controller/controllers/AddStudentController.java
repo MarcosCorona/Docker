@@ -17,7 +17,7 @@ public class AddStudentController {
     @Autowired
     AddEstudianteServiceImpl addEstudianteService;
 
-    @PostMapping("/estudiante")
+    @PostMapping("/estudiante/add")
     public ResponseEntity<EstudianteOutputDTO> addStudent(@RequestBody EstudianteInputDTO estudianteInputDTO) throws Exception {
         return new ResponseEntity<>(new EstudianteOutputDTO(addEstudianteService.addEstudiante(estudianteInputDTO)), HttpStatus.OK);
     }

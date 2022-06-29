@@ -1,6 +1,7 @@
 package com.example.BP1.estudiante.infraestructure.controller.dto.input;
 
 import com.example.BP1.persona.domain.entity.Persona;
+import com.example.BP1.profesor.domain.Profesor;
 import lombok.Data;
 
 @Data
@@ -9,7 +10,7 @@ public class EstudianteInputDTO {
     Persona persona;
     Integer num_hours_week;
     String coments;
-    //Profesor profesor;
+    Profesor profesor;
     String branch;
     //List<Asignatura> estudios;
 }

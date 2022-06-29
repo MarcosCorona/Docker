@@ -29,7 +29,7 @@ public class FindAllStudentsController {
                 .toList(), HttpStatus.ACCEPTED);
     }
     @GetMapping("/estudiantes/find/{id}")
-    public ResponseEntity<EstudianteOutputDTO> findPersonById(@PathVariable Integer id) throws Exception {
+    public ResponseEntity<EstudianteOutputDTO> findPersonById(@PathVariable String id) throws Exception {
         return new ResponseEntity<>(new EstudianteOutputDTO(findByIdServiceImpl.findStudentById(id)), HttpStatus.ACCEPTED);
     }
 }
