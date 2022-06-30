@@ -15,9 +15,9 @@ public class FindStudentByIdServiceImpl implements FindStudentByIdService {
     EstudianteRepositorio estudianteRepositorio;
 
     @Override
-    public Estudiante findStudentById(String id) throws Exception {
+    public Estudiante findStudentById(Integer id) throws Exception {
 
-        return estudianteRepositorio.findById(id).orElseThrow(() -> new NotFoundException404("No se encontró el id"));
+        return estudianteRepositorio.findById(id).orElseThrow(() -> new NotFoundException404("No se encontró el id del alumno"));
 
     }
 }

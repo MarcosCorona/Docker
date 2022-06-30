@@ -1,9 +1,12 @@
 package com.example.BP1.estudiante.infraestructure.controller.dto.output;
 
+import com.example.BP1.asignaturas.domain.Asignatura;
 import com.example.BP1.estudiante.domain.Estudiante;
 import com.example.BP1.persona.domain.entity.Persona;
 import com.example.BP1.profesor.domain.Profesor;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class EstudianteOutputDTO {
@@ -14,7 +17,7 @@ public class EstudianteOutputDTO {
     String coments;
     Profesor profesor;
     String branch;
-    //List<Asignatura> estudios;
+    List<Asignatura> estudios;
 
     public EstudianteOutputDTO(EstudianteOutputDTO estudiante) {
         setId_student(estudiante.getId_student());
@@ -23,7 +26,7 @@ public class EstudianteOutputDTO {
         setComents(estudiante.getComents());
         setProfesor(estudiante.getProfesor());
         setBranch(estudiante.getBranch());
-        //setEstudios(estudiante.getEstudios());
+        setEstudios(estudiante.getEstudios());
     }
     public EstudianteOutputDTO(Estudiante estudiante) {
         setId_student(estudiante.getId_student());
@@ -32,7 +35,7 @@ public class EstudianteOutputDTO {
         setComents(estudiante.getComents());
         setProfesor(estudiante.getProfesor());
         setBranch(estudiante.getBranch());
-        //setEstudios(estudiante.getEstudios());
+        setEstudios(estudiante.getEstudios());
     }
 
 
