@@ -9,8 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController()
 public class FindAllProfesoresController {
@@ -30,6 +33,12 @@ public class FindAllProfesoresController {
     }
     @GetMapping("/profesores/find/{id}")
     public ResponseEntity<ProfesorOutputDTO> findPersonById(@PathVariable int id) throws Exception {
-        return new ResponseEntity<>(new ProfesorOutputDTO(findByIdServiceImpl.findProfesorById(id)), HttpStatus.ACCEPTED);
+        Map<String, Integer> uriVariables = new HashMap<>();
+        uriVariables.put("country", id);
+        ResponseEntity<ProfesorOutputDTO> responseEntity = new RestTemplate().getForEntity(
+                "http://localhost:8081/profesores/find/{id}",
+                ProfesorOutputDTO.class,
+                uriVariables );
+        return responseEntity;
     }
 }

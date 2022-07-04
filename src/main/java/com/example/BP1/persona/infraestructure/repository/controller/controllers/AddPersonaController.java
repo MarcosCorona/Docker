@@ -7,11 +7,10 @@ import com.example.BP1.persona.infraestructure.repository.controller.dto.outputD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController()
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class AddPersonaController {
 
     @Autowired
@@ -19,7 +18,7 @@ public class AddPersonaController {
 
     @PostMapping("/add")
     public ResponseEntity<PersonaOutputDTO> addPerson(@RequestBody PersonaInputDTO personaDTO) throws NotFoundException404 {
-
+        System.out.println("añadido");
         return new ResponseEntity<>(new PersonaOutputDTO(addPersonaService.addPersona(personaDTO)), HttpStatus.OK);
     }
 }
