@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+
 import java.util.Date;
 
 @RestControllerAdvice
-public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class CustomizedResponseEntityExceptionHandler {
 
   @ExceptionHandler(NotFoundException404.class)
   public final ResponseEntity<ExceptionResponse> handlerNotFoundException(NotFoundException404 notFoundException404, WebRequest request){
